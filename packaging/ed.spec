@@ -29,6 +29,7 @@ make check
 %{makeinstall}
 
 %files
+%license COPYING
 %defattr(-,root,root)
 %{_bindir}/%{name}
 %{_bindir}/r%{name}
