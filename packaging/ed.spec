@@ -6,6 +6,7 @@ Summary:        Standard UNIX Line Editor
 Url:            http://www.gnu.org/software/ed/
 Group:          Productivity/Editors/Other
 Source:         %{name}-%{version}.tar.gz
+Source1001: 	ed.manifest
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
@@ -13,6 +14,7 @@ The standard, old Unix line editor.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 sed -i \
     -e "s/CFLAGS='.*/CFLAGS='%{optflags}'/" \
     -e "s/CXXFLAGS='.*/CXXFLAGS='%{optflags}'/" \
@@ -29,6 +31,7 @@ make check
 %{makeinstall}
 
 %files
+%manifest %{name}.manifest
 %license COPYING
 %defattr(-,root,root)
 %{_bindir}/%{name}
