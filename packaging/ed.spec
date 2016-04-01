@@ -21,6 +21,9 @@ sed -i \
     configure
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 %{configure}
 make %{?_smp_mflags}
 
