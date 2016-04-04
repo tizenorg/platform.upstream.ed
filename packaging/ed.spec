@@ -16,8 +16,8 @@ The standard, old Unix line editor.
 %setup -q
 cp %{SOURCE1001} .
 sed -i \
-    -e "s/CFLAGS='.*/CFLAGS='%{optflags}'/" \
-    -e "s/CXXFLAGS='.*/CXXFLAGS='%{optflags}'/" \
+    -e "s/CFLAGS='.*/CFLAGS='%{optflags} -fvisibility=hidden'/" \
+    -e "s/CXXFLAGS='.*/CXXFLAGS='%{optflags} -fvisibility=hidden'/" \
     configure
 
 %build
